@@ -6,12 +6,12 @@ const state = {
   imoveis: [],
   selectedProperty: null,
   cp: {
-    organizacao: "Treinamento Local",
-    apiKeys: 1,
-    scopes: "assets.read",
-    rateLimit: "60/min",
-    consumo: 12,
-    consumo24h: 4
+    organizacao: "—",
+    apiKeys: 0,
+    scopes: "—",
+    rateLimit: "—",
+    consumo: 0,
+    consumo24h: 0
   }
 };
 
@@ -113,11 +113,11 @@ function renderPainel(){
         <div>
           <span class="kicker">Core operacional</span>
           <h2>NexoTerraCore Console</h2>
-          <p>Um console técnico para patrimônio, agro, georreferenciamento, APIs e governança. Esta versão foi criada para treinamento e evolução controlada.</p>
+          <p>Um console técnico para patrimônio, agro, georreferenciamento, APIs e governança.</p>
         </div>
         <div class="hero-side">
-          <div class="hero-chip"><span>Ambiente</span><strong>LOCAL / V2</strong></div>
-          <div class="hero-chip"><span>Banco</span><strong>MOCK/API</strong></div>
+          <div class="hero-chip"><span>Ambiente</span><strong>PRODUÇÃO</strong></div>
+          <div class="hero-chip"><span>Banco</span><strong>A CONECTAR</strong></div>
         </div>
       </section>
 
@@ -139,7 +139,7 @@ function renderPainel(){
 }
 
 function propertyTable(items){
-  if(!items.length) return `<div class="empty">Nenhum imóvel cadastrado nesta versão.</div>`;
+  if(!items.length) return `<div class="empty">Nenhum imóvel cadastrado.</div>`;
   return `
     <table>
       <thead><tr><th>Imóvel</th><th>Tipo</th><th>Local</th><th>Área</th><th>Matrícula</th><th>Status</th><th>Ação</th></tr></thead>
@@ -171,11 +171,10 @@ function renderImoveis(){
         <div>
           <span class="kicker">Patrimônio / ativos</span>
           <h2>Imóveis</h2>
-          <p>Área de trabalho para cadastro, documentos, fotos, georreferenciamento, avaliação, histórico e integração futura com a API real.</p>
+          <p>Área de trabalho para cadastro, documentos, fotos, georreferenciamento, avaliação, histórico e integração com a API.</p>
         </div>
         <div class="hero-side">
           <div class="hero-chip"><span>Total</span><strong>${state.imoveis.length}</strong></div>
-          <div class="hero-chip"><span>Modo</span><strong>DEMO</strong></div>
         </div>
       </section>
 
@@ -262,7 +261,7 @@ function renderControlPlane(){
         <div>
           <span class="kicker">API Control Plane</span>
           <h2>Governança do Core</h2>
-          <p>Identidade, segurança, scopes, consumo e integração. Os valores desta versão são de treinamento e podem ser substituídos pela API real depois.</p>
+          <p>Identidade, segurança, scopes, consumo e integração da organização.</p>
         </div>
         <div class="hero-side"><div class="hero-chip"><span>Organização</span><strong>${state.cp.organizacao}</strong></div></div>
       </section>
@@ -291,11 +290,11 @@ function renderApi(){
         <div><span class="kicker">Engenharia</span><h2>Arquitetura / API</h2><p>Mapa visual para estudar os endpoints do Core sem alterar o backend real.</p></div>
       </section>
       <section class="panel">
-        <div class="panel-head"><div><span class="kicker">Endpoints</span><h3>Contrato de treinamento</h3></div></div>
+        <div class="panel-head"><div><span class="kicker">Endpoints</span><h3>Contrato da API</h3></div></div>
         <div class="api-list">
-          <div class="api-row"><span class="method">GET</span><code>/api/health</code><span class="status"><i></i>mock</span></div>
-          <div class="api-row"><span class="method">GET</span><code>/api/control-plane</code><span class="status"><i></i>mock</span></div>
-          <div class="api-row"><span class="method">GET</span><code>/api/imoveis</code><span class="status"><i></i>mock</span></div>
+          <div class="api-row"><span class="method">GET</span><code>/api/health</code><span class="status">futuro</span></div>
+          <div class="api-row"><span class="method">GET</span><code>/api/control-plane</code><span class="status">futuro</span></div>
+          <div class="api-row"><span class="method">GET</span><code>/api/imoveis</code><span class="status">futuro</span></div>
           <div class="api-row"><span class="method">POST</span><code>/api/imoveis</code><span class="status">futuro</span></div>
         </div>
       </section>
@@ -307,7 +306,7 @@ function renderGeneric(){
   return `
     <div class="page">
       <section class="hero">
-        <div><span class="kicker">Módulo</span><h2>${title}</h2><p>Estrutura reservada para evolução controlada. Nenhum backend real é alterado nesta versão.</p></div>
+        <div><span class="kicker">Módulo</span><h2>${title}</h2><p>Estrutura reservada para evolução controlada.</p></div>
       </section>
       <section class="panel"><div class="empty">Módulo ${title} pronto para receber dados e ações em uma próxima etapa.</div></section>
     </div>`;
