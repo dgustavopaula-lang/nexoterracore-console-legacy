@@ -1,0 +1,35 @@
+[
+  {
+    "id": 1,
+    "nome": "Imóvel Demo 01",
+    "tipo": "Residencial",
+    "cidade": "Cidade Exemplo",
+    "uf": "GO",
+    "area": 180.0,
+    "status": "Ativo",
+    "matricula": "DEMO-001",
+    "valor": 0
+  },
+  {
+    "id": 2,
+    "nome": "Imóvel Demo 02",
+    "tipo": "Comercial",
+    "cidade": "Cidade Exemplo",
+    "uf": "MG",
+    "area": 95.0,
+    "status": "Em análise",
+    "matricula": "DEMO-002",
+    "valor": 0
+  },
+  {
+    "id": 3,
+    "nome": "Imóvel Demo 03",
+    "tipo": "Rural",
+    "cidade": "Cidade Exemplo",
+    "uf": "GO",
+    "area": 20000.0,
+    "status": "Ativo",
+    "matricula": "DEMO-003",
+    "valor": 0
+  }
+]

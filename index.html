@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>NexoTerraCore Console Next</title>
+  <meta name="description" content="Template de treinamento do NexoTerraCore Console Next.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;500;600&family=Instrument+Serif:ital@0;1&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar" id="sidebar">
+      <div class="sidebar-head">
+        <div class="brand-mark">NX</div>
+        <div class="brand-text sidebar-hide">
+          <strong>NexoTerraCore</strong>
+          <span>Console Next</span>
+        </div>
+        <button class="icon-btn" id="sidebarToggle" title="Recolher sidebar" aria-label="Recolher sidebar">
+          <svg viewBox="0 0 24 24"><path d="M15 6l-6 6 6 6"/></svg>
+        </button>
+      </div>
+
+      <nav class="sidebar-nav">
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Portfólio</div>
+          <button class="nav-item active" data-view="painel">
+            <span class="nav-icon">◻</span><span class="sidebar-hide">Painel</span>
+          </button>
+          <a class="nav-item" href="https://patrimonio.gustavopaulasantos.com.br/" target="_blank" rel="noreferrer">
+            <span class="nav-icon">↗</span><span class="sidebar-hide">Páginas de Vendas</span>
+          </a>
+          <button class="nav-item" data-view="imoveis">
+            <span class="nav-icon">⌂</span><span class="sidebar-hide">Imóveis</span>
+          </button>
+          <button class="nav-item" data-view="fazendas">
+            <span class="nav-icon">⌂</span><span class="sidebar-hide">Fazendas</span>
+          </button>
+          <button class="nav-item" data-view="armazens">
+            <span class="nav-icon">▤</span><span class="sidebar-hide">Armazéns e Silos</span>
+          </button>
+          <button class="nav-item" data-view="proprietarios">
+            <span class="nav-icon">▥</span><span class="sidebar-hide">Proprietários</span>
+          </button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Gestão</div>
+          <button class="nav-item" data-view="patrimonio"><span class="nav-icon">⌂</span><span class="sidebar-hide">Patrimônio</span></button>
+          <button class="nav-item" data-view="matriculas"><span class="nav-icon">▧</span><span class="sidebar-hide">Matrículas</span></button>
+          <button class="nav-item" data-view="alugueis"><span class="nav-icon">□</span><span class="sidebar-hide">Aluguéis</span></button>
+          <button class="nav-item" data-view="financeiro"><span class="nav-icon">$</span><span class="sidebar-hide">Financeiro</span></button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Control Plane</div>
+          <button class="nav-item" data-view="control-plane"><span class="nav-icon">CP</span><span class="sidebar-hide">Visão Geral</span></button>
+          <div class="cp-mini sidebar-hide">
+            <div><span>Org</span><strong id="cpOrgSide">—</strong></div>
+            <div><span>Keys</span><strong id="cpKeysSide">—</strong></div>
+            <div><span>24h</span><strong id="cp24Side">—</strong></div>
+          </div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Geo</div>
+          <button class="nav-item" data-view="geo"><span class="nav-icon">◎</span><span class="sidebar-hide">Geo-referência</span></button>
+          <div class="nav-item disabled"><span class="nav-icon">M</span><span class="sidebar-hide">Google Maps <b>PRÓX.</b></span></div>
+          <div class="nav-item disabled"><span class="nav-icon">E</span><span class="sidebar-hide">Google Earth <b>PRÓX.</b></span></div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Inteligência</div>
+          <div class="nav-item disabled"><span class="nav-icon">A</span><span class="sidebar-hide">Mercado / Análises <b>PRÓX.</b></span></div>
+          <div class="nav-item disabled"><span class="nav-icon">AI</span><span class="sidebar-hide">Nexo AI <b>PRÓX.</b></span></div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Engenharia</div>
+          <button class="nav-item" data-view="arquitetura"><span class="nav-icon">API</span><span class="sidebar-hide">Arquitetura / API</span></button>
+          <button class="nav-item" data-view="banco"><span class="nav-icon">DB</span><span class="sidebar-hide">Banco de Dados</span></button>
+          <button class="nav-item" data-view="logs"><span class="nav-icon">&lt;/&gt;</span><span class="sidebar-hide">Logs / VS Code</span></button>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Integrações</div>
+          <button class="nav-item" data-view="picpay"><span class="nav-icon">P</span><span class="sidebar-hide">PicPay</span></button>
+          <div class="nav-item disabled"><span class="nav-icon">W</span><span class="sidebar-hide">WhatsApp API <b>PRÓX.</b></span></div>
+        </div>
+
+        <div class="nav-section">
+          <div class="nav-title sidebar-hide">Configurações</div>
+          <button class="nav-item" data-view="usuarios"><span class="nav-icon">U</span><span class="sidebar-hide">Usuários & Permissões</span></button>
+          <button class="nav-item" data-view="seguranca"><span class="nav-icon">S</span><span class="sidebar-hide">Segurança</span></button>
+          <button class="nav-item" data-view="backup"><span class="nav-icon">B</span><span class="sidebar-hide">Backup</span></button>
+        </div>
+      </nav>
+
+      <div class="sidebar-user">
+        <div class="avatar">G</div>
+        <div class="sidebar-hide user-copy"><strong>Gustavo</strong><span>admin</span></div>
+        <button class="icon-btn sidebar-hide" title="Sair"><svg viewBox="0 0 24 24"><path d="M15 17l5-5-5-5M20 12H9M9 3H5v18h4"/></svg></button>
+      </div>
+    </aside>
+
+    <main class="main">
+      <header class="topbar">
+        <div class="topbar-title">
+          <div class="breadcrumb"><span>nexoterracore</span><i>/</i><b id="breadcrumb">painel</b></div>
+          <h1 id="pageTitle">Painel</h1>
+        </div>
+        <div class="topbar-actions">
+          <div class="db-pill"><i></i><span id="dbStatus">db: verificando...</span></div>
+          <button class="btn ghost" id="refreshBtn">Atualizar</button>
+          <button class="btn primary" id="primaryBtn">Novo registro</button>
+        </div>
+      </header>
+
+      <section id="pageContent"></section>
+    </main>
+  </div>
+
+  <dialog id="recordDialog">
+    <form method="dialog" class="modal-card" id="recordForm">
+      <div class="modal-head">
+        <div><span class="kicker">Novo registro</span><h2>Novo imóvel</h2></div>
+        <button class="icon-btn" value="cancel" aria-label="Fechar">×</button>
+      </div>
+      <div class="form-grid">
+        <label><span>Nome</span><input name="nome" placeholder="Ex.: Unidade 01" required></label>
+        <label><span>Tipo</span><select name="tipo"><option>Residencial</option><option>Comercial</option><option>Rural</option><option>Industrial</option></select></label>
+        <label><span>Cidade</span><input name="cidade" placeholder="Cidade"></label>
+        <label><span>UF</span><input name="uf" maxlength="2" placeholder="UF"></label>
+        <label><span>Área (m²)</span><input name="area" type="number" step="0.01" placeholder="0"></label>
+        <label><span>Status</span><select name="status"><option>Ativo</option><option>Em análise</option><option>Vendido</option></select></label>
+      </div>
+      <div class="modal-actions">
+        <button class="btn ghost" value="cancel">Cancelar</button>
+        <button class="btn primary" value="default" id="saveRecordBtn">Salvar local</button>
+      </div>
+    </form>
+  </dialog>
+
+  <script src="app.js"></script>
+</body>
+</html>
