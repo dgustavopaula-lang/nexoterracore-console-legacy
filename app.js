@@ -399,4 +399,37 @@ if(localSaved){
   try { state.imoveis = JSON.parse(localSaved); } catch {}
 }
 
-loadInitialData();
+// Gate de acesso simples (client-side). Não substitui autenticação real.
+// Para trocar a senha: gere um novo hash com
+//   python3 -c "import hashlib; print(hashlib.sha256('SUA_SENHA'.encode()).hexdigest())"
+// e substitua GATE_HASH abaixo.
+const GATE_HASH = "6e0e0d6621658cdc0d840671f5127a486f36f868e535a9cd48ce2250c0eb9a71";
+const GATE_KEY = "ntc_console_next_unlocked";
+
+async function sha256Hex(text){
+  const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(text));
+  return [...new Uint8Array(buf)].map(b => b.toString(16).padStart(2,"0")).join("");
+}
+
+function unlockApp(){
+  $("#gateScreen").remove();
+  $("#appRoot").hidden = false;
+  loadInitialData();
+}
+
+if(sessionStorage.getItem(GATE_KEY) === "1"){
+  unlockApp();
+} else {
+  $("#gateForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const pass = $("#gatePassword").value;
+    if(await sha256Hex(pass) === GATE_HASH){
+      sessionStorage.setItem(GATE_KEY, "1");
+      unlockApp();
+    } else {
+      $("#gateError").hidden = false;
+      $("#gatePassword").value = "";
+      $("#gatePassword").focus();
+    }
+  });
+}

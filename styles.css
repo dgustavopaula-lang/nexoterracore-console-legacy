@@ -24,6 +24,22 @@ button{color:inherit}
 a{color:inherit}
 svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
+.gate-screen{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--bg)}
+.gate-card{
+  width:min(340px,90vw);display:flex;flex-direction:column;gap:12px;
+  background:var(--panel);border:1px solid var(--line);border-radius:14px;
+  padding:32px 28px;box-shadow:var(--shadow);text-align:center
+}
+.gate-card .brand-mark{margin:0 auto 4px}
+.gate-card h1{font-size:19px;margin:0}
+.gate-card p{color:var(--muted);font-size:13px;margin:0 0 8px}
+.gate-card input{
+  background:var(--panel2);border:1px solid var(--line2);border-radius:8px;
+  color:var(--text);padding:10px 12px;font-size:14px
+}
+.gate-card input:focus{outline:1px solid var(--orange)}
+.gate-error{color:var(--red);font-size:12.5px}
+
 .app{min-height:100vh;display:flex}
 .sidebar{
   width:258px;flex:none;background:var(--panel);border-right:1px solid var(--line);
